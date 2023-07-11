@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "demo-app2"
+  annotations:
+    argocd/app-name: demo-app2-dev
+    backstage.io/kubernetes-id: demo-app2
+    backstage.io/kubernetes-namespace: demo-app2-dev
+    janus-idp.io/tekton-enabled : 'true'
+    github.com/project-slug: ozimakov-demo-org/demo-app2
+    quay.io/repository-slug: "ozimakov-demo-org/demo-app2"
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - java
+    - quarkus
+  links:
+    - url: https://devspaces.apps.cluster-f5s4l.f5s4l.sandbox509.opentlc.com/#https://github.com/ozimakov-demo-org/demo-app2?che-editor=che-incubator/che-code/insiders&devfilePath=.devfile-vscode.yaml
+      title: OpenShift Dev Spaces (VS Code)
+      icon: web
+    - url: https://devspaces.apps.cluster-f5s4l.f5s4l.sandbox509.opentlc.com/#https://github.com/ozimakov-demo-org/demo-app2?che-editor=che-incubator/che-idea/latest&devfilePath=.devfile-intellij.yaml
+      title: OpenShift Dev Spaces (JetBrains IntelliJ)
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: "group:default/ozimakov-rh"
+  providesApis:
+    - "demo-app2"
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: "demo-app2"
+spec:
+  type: openapi
+  lifecycle: production
+  owner: "group:default/ozimakov-rh"
+  definition:
+    $text: ./openapi.yaml
