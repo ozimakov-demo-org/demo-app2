@@ -27,7 +27,7 @@ spec:
   providesApis:
     - "demo-app2"
   dependsOn:
-    - component:demo-app1
+    - api:demo-app1
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
