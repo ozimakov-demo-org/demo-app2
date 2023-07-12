@@ -26,6 +26,8 @@ spec:
   owner: "group:default/ozimakov-rh"
   providesApis:
     - "demo-app2"
+  dependsOn:
+    - component:demo-app1
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
